@@ -1,0 +1,8 @@
+teams:
+  RED:
+    - player
+    - player2
+  BLUE:
+    - player3
+    - player4
+    - player5
