@@ -1,6 +1,0 @@
-name: TeamTeleport
-main: com.gmail.tilastokeskus.TeamTeleport
-version: 0.1.2b
-commands:
-   tt:
-      description: The command to the plugin's interface.

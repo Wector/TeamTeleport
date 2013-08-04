@@ -68,6 +68,12 @@ public class Messages {
 				
 				/* # # # */
 				
+			case "NoPermission":
+				sendee[0].sendMessage(ChatColor.RED + "You do not have permission to use this command.");
+				break;
+				
+				/* # # # */
+				
 			default:
 				break;
 				

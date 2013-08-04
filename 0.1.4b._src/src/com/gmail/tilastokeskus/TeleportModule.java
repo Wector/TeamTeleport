@@ -27,20 +27,29 @@ public class TeleportModule {
 		
 		if(hasPermission) {
 			
-			if(TeamTeleport.AskPermission) {
+			if(TeamTeleport.AskPermission && !player.hasPermission("teamteleport.tele.noAsk")) {
 				
 				TpRequest.Send(player, targetPlayer);
 				
 			}
 			else {
 
-				new Messages(new CommandSender[] {player, targetPlayer}, "TeleportCountdownStarted");
-				TeamTeleport.scheduleId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-					public void run() {
-						player.teleport(targetPlayer);
-					}
-				}, TeamTeleport.TeleportDelay * 20L);
+				if(player.hasPermission("teamteleport.tele.noWait")) {
+					
+					player.teleport(targetPlayer);
+					
+				}
+				else {
+					
+					new Messages(new CommandSender[] {player, targetPlayer}, "TeleportCountdownStarted");
+					TeamTeleport.scheduleId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+						public void run() {
+							player.teleport(targetPlayer);
+						}
+					}, TeamTeleport.TeleportDelay * 20L);
 				
+				}
+					
 			}
 			
 		}

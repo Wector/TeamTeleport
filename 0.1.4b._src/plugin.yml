@@ -1,0 +1,30 @@
+name: TeamTeleport
+main: com.gmail.tilastokeskus.TeamTeleport
+version: 0.1.4b
+commands:
+  teamteleport:
+    description: The command to the plugin's in-game interface.
+    aliases: [tt]
+permissions:
+  teamteleport.*:
+    description: Gives permissions to all in-game commands.
+    children:
+      teamteleport.tele: true
+      teamteleport.allow: true
+      teamteleport.deny: true
+  teamteleport.tele:
+    description: Allows you to teleport.
+    default: true
+    children:
+      teamteleport.tele.noAsk: true
+      teamteleport.tele.noWait: true
+  teamteleport.tele.noAsk:
+    description: Allow player to always teleport without asking for permission
+    default: op
+  teamteleport.tele.noWait:
+    description: Allow player to always teleport instantly
+    default: op
+  teamteleport.allow:
+    default: true
+  teamteleport.deny:
+    default: true

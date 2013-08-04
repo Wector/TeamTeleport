@@ -28,7 +28,7 @@ public class EventListener implements Listener {
 			Player player = (Player)e;
 			if(TeamTeleport.scheduleId != -1) {
 				
-				if(event.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK || event.getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
+				if(TeamTeleport.CancelTeleportWhenAttacked && (event.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK || event.getCause() == EntityDamageEvent.DamageCause.PROJECTILE)) {
 				
 					new Messages(new CommandSender[] {player}, "TeleportCancelled");
 					

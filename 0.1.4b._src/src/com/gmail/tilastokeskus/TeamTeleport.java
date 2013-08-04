@@ -14,8 +14,9 @@ public final class TeamTeleport extends JavaPlugin {
 	public File teamsConfigFile;
     public FileConfiguration teamsConfig;
 	
-	public static Boolean AskPermission = false;
-	public static int TeleportDelay = 0;
+	public static Boolean AskPermission;
+	public static int TeleportDelay;
+	public static Boolean CancelTeleportWhenAttacked;
 	
 	public static HashMap<String, List<String>> tpRequests = new HashMap<String, List<String>>();
 	public static int scheduleId;
@@ -28,9 +29,11 @@ public final class TeamTeleport extends JavaPlugin {
     	
     	new EventListener(this);
     	
-    	if(this.getConfig().getString("AskPermission").equalsIgnoreCase("true")) AskPermission = true;
-    	TeleportDelay = (this.getConfig().getInt("TeleportDelay") < 0 ? 0 : this.getConfig().getInt("TeleportDelay"));
+    	AskPermission = this.getConfig().getBoolean("AskPermission");
+    	TeleportDelay = this.getConfig().getInt("TeleportDelay");
+    	CancelTeleportWhenAttacked = this.getConfig().getBoolean("CancelTeleportWhenAttacked");
     	
+    	getCommand("teamteleport").setExecutor(new Commands(this));
     	getCommand("tt").setExecutor(new Commands(this));
     	
     }

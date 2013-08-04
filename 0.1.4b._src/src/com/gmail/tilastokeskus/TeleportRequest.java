@@ -58,15 +58,24 @@ public class TeleportRequest {
 				
 				if(s.equals(requestingPlayerName)) {
 					
-					new Messages(new CommandSender[] {requestingPlayer, allowingPlayer}, "TeleportCountdownStarted");
-					TeamTeleport.scheduleId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-						public void run() {
-							requestingPlayer.teleport(allowingPlayer);
-							TeamTeleport.removeRequest(plugin, requestingPlayerName, allowingPlayerName);
-							TeamTeleport.scheduleId = -1;
-							return;
-						}
-					}, TeamTeleport.TeleportDelay * 20L);
+					if(requestingPlayer.hasPermission("teamteleport.tele.noWait")) {
+						
+						requestingPlayer.teleport(allowingPlayer);
+						
+					}
+					else {
+						
+						new Messages(new CommandSender[] {requestingPlayer, allowingPlayer}, "TeleportCountdownStarted");
+						TeamTeleport.scheduleId = plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+							public void run() {
+								requestingPlayer.teleport(allowingPlayer);
+								TeamTeleport.removeRequest(plugin, requestingPlayerName, allowingPlayerName);
+								TeamTeleport.scheduleId = -1;
+								return;
+							}
+						}, TeamTeleport.TeleportDelay * 20L);
+					
+					}
 					
 					return;
 					
