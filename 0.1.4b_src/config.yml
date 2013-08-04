@@ -1,0 +1,4 @@
+# AskPermission: true/false - Should players be asked for permission when someone tries to teleport to them?
+AskPermission: false
+# TeleportDelay: <number> - How much to wait in seconds until teleportation. TeleportDelay: 0 is basically no delay.
+TeleportDelay: 5
