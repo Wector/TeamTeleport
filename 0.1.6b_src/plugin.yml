@@ -1,6 +1,6 @@
 name: TeamTeleport
 main: com.gmail.tilastokeskus.TeamTeleport
-version: 0.1.5b
+version: 0.1.6b
 commands:
   teamteleport:
     description: The command to the plugin's in-game interface.
