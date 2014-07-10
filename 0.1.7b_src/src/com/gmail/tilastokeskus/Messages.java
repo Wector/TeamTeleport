@@ -1,3 +1,5 @@
+/*    */ package io.github.statistician.teamteleport;
+/*    */ 
 /*    */ import org.bukkit.ChatColor;
 /*    */ 
 /*    */ public class Messages
