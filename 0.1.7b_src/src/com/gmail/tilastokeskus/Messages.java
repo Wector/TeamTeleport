@@ -12,7 +12,7 @@ public class Messages {
 				/* # # # */
 		
 			case "PlayersOnly":
-				((CommandSender)sendee[0]).sendMessage("Only players can use this command!");
+				((CommandSender)sendee[0]).sendMessage("Valami!");
 				break;
 			case "PlayerNotOnline":
 				((CommandSender)sendee[0]).sendMessage(ChatColor.RED + "Player not online!");
